@@ -77,6 +77,9 @@
       .nav-links a:hover { color: var(--primary); }
       .menu-toggle { background: none; border: 0; color: var(--primary); cursor: pointer; }
       .mobile-menu { display: flex; flex-direction: column; gap: 20px; padding: 32px 20px; border-top: 1px solid var(--border); background: var(--navbar); }
+      .mobile-menu[hidden] {
+        display: none !important;
+      }
       .mobile-menu a { font-size: 1.05rem; }
 
       .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: var(--radius); padding: 16px 32px; font-weight: 600; font-size: .95rem; transition: transform .2s, border-color .2s, color .2s; }
@@ -90,9 +93,10 @@
       .hero-grid { display: grid; gap: 48px; align-items: center; padding-block: 64px; }
       .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); border-radius: 999px; padding: 6px 16px; font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); margin-bottom: 20px; }
       h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); }
-      .lead { margin-top: 24px; max-width: 36rem; color: var(--muted-foreground); font-size: 1.05rem; }
+      .lead { margin-top: 24px; max-width: 36rem; color: var(--muted-foreground); font-size: 1.05rem; text-align: center; align-items: center; justify-content: center; }
+      .lead2 { margin: 24px auto 0;; max-width: 36rem; color: var(--muted-foreground); font-size: 1.05rem; text-align: center; }
       .cta-row { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
-      .center-row { align-items: center; }
+      .center-row { align-items: center; justify-content: center; }
       .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
       .stats dt { font-family: "Playfair Display", serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
       .stats dd { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted-foreground); }
@@ -171,7 +175,7 @@
           <a href="#processo">Como Funciona</a>
           <a href="#faq">Dúvidas</a>
           <a href="#contato">Contato</a>
-          <a class="btn btn-primary btn-sm" href="https://wa.me/5532999999999">Falar com advogado</a>
+          <a class="btn btn-primary btn-sm" href="https://wa.me/553291233714">Falar com advogado</a>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
@@ -183,7 +187,7 @@
         <a href="#processo">Como Funciona</a>
         <a href="#faq">Dúvidas</a>
         <a href="#contato">Contato</a>
-        <a class="btn btn-primary" href="https://wa.me/5532999999999">Falar com advogado</a>
+        <a class="btn btn-primary" href="https://wa.me/553291233714">Falar com advogado</a>
       </div>
     </header>
 
@@ -200,7 +204,7 @@
             recuperação de valores pagos a mais para bancos e financeiras.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://wa.me/5532999999999">Análise gratuita do contrato</a>
+            <a class="btn btn-primary" href="https://wa.me/553291233714">Análise gratuita do contrato</a>
             <a class="btn btn-outline" href="#atuacao">Ver áreas de atuação →</a>
           </div>
           <dl class="stats">
@@ -252,10 +256,10 @@
     <section id="contato" class="band">
       <div class="narrow center section">
         <h2>Envie seu contrato para <span class="gold">análise gratuita</span></h2>
-        <p class="lead">Retorno em até 24 horas úteis com um parecer objetivo sobre a viabilidade da revisão.</p>
+        <p class="lead2">Retorno em até 24 horas úteis com um parecer objetivo sobre a viabilidade da revisão.</p>
         <div class="cta-row center-row">
-          <a class="btn btn-primary" href="https://wa.me/5532999999999">Falar no WhatsApp</a>
-          <a class="btn btn-outline" href="tel:+553299999999">(32) 99999-9999</a>
+          <a class="btn btn-primary" href="https://wa.me/553291233714">Falar no WhatsApp</a>
+          <a class="btn btn-outline" href="https://wa.me/553291233714">(32) 99123-3714</a>
         </div>
       </div>
     </section>
@@ -263,20 +267,20 @@
     <footer>
       <div class="footer-bar">
         <div class="container footer-grid">
-          <div>Av. Barão do Rio Branco, 1000 — Centro<br />Juiz de Fora / MG</div>
-          <div><a href="tel:+553299999999">(32) 99999-9999</a></div>
+          <div>Av. Olegário Maciel, 770 - Santa Helena<br />Juiz de Fora / MG</div>
+          <div><a href="https://wa.me/553291233714">(32) 99123-3714</a></div>
           <div><a href="mailto:contato@advbancario.com.br">contato@advbancario.com.br</a></div>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="container footer-bottom-inner">
-          <p>© <span id="ano"></span> Advocacia Bancária — Todos os direitos reservados.</p>
-          <p>Protótipo para apresentação — conteúdo meramente ilustrativo.</p>
+          <p>© <span id="ano"></span> LanderUp — Todos os direitos reservados.</p>
+          <p>Contato: landerupcontato@gmail.com</p>
         </div>
       </div>
     </footer>
 
-    <a class="whatsapp" href="https://wa.me/5532999999999" aria-label="Falar no WhatsApp">WhatsApp</a>
+    <a class="whatsapp" href="https://wa.me/553291233714" aria-label="Falar no WhatsApp">WhatsApp</a>
 
     <script>
       const ICONS = {
