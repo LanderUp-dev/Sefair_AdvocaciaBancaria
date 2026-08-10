@@ -299,11 +299,14 @@
       color: var(--muted-foreground);
     }
 
+    .hero-frame {
+      position: relative;
+      padding: 14px;
+    }
+
     .hero-img {
       border: 1px solid var(--border);
-      border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-card);
     }
 
     .band {
@@ -404,29 +407,216 @@
       font-size: .9rem;
       color: var(--muted-foreground);
     }
+
     /* Carrossel de vídeos do Instagram */
-     .car { position: relative; margin-top: 40px; }
-     .car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; }
-     .car-track.is-centered { justify-content: center; overflow-x: hidden; }
-     .car-nav[hidden] { display: none; }
-     .car-track::-webkit-scrollbar { display: none; }
-     .car-item { flex: 0 0 100%; scroll-snap-align: center; }
-     .car-card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: color-mix(in srgb, var(--background) 60%, transparent); position: relative; }
-     .car-thumb { position: relative; display: block; }
-     .car-thumb img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; background: var(--secondary); }
-     .car-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, .18); transition: background .2s; }
-     .car-thumb:hover .car-play, .car-thumb:focus-visible .car-play { background: rgba(0, 0, 0, .32); }
-     .car-play svg { width: 60px; height: 60px; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .5)); }
-     .car-cap { padding: 14px 16px; font-size: .9rem; color: var(--muted-foreground); }
-     .car-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; }
-     .car-btn { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--border); background: none; color: var(--primary); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: border-color .2s, transform .2s; }
-     .car-btn:hover { border-color: var(--primary); transform: scale(1.06); }
-     .car-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-     .car-dots { display: flex; gap: 8px; }
-     .car-dot { width: 9px; height: 9px; border-radius: 999px; border: 0; padding: 0; cursor: pointer; background: color-mix(in srgb, var(--foreground) 30%, transparent); }
-     .car-dot.active { background: var(--primary); width: 22px; border-radius: 999px; transition: width .25s, background .25s; }
-     @media (min-width: 700px) { .car-item { flex-basis: calc((100% - 20px) / 2); } }
-     @media (min-width: 1024px) { .car-item { flex-basis: calc((100% - 40px) / 3); } }
+    .car {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .car-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+
+    .car-track.is-centered {
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    .car-nav[hidden] {
+      display: none;
+    }
+
+    .car-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .car-item {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+    }
+
+    .car-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: color-mix(in srgb, var(--background) 60%, transparent);
+      position: relative;
+    }
+
+    .car-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--card);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+
+    .car-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .car-thumb {
+      position: relative;
+      display: block;
+    }
+
+    .car-video-area {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(160deg, var(--card), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .car-video-area img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .55;
+    }
+
+    .car-play-circle {
+      position: relative;
+      z-index: 1;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1.5px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      transition: transform .2s, background .2s;
+    }
+
+    .car-play-circle svg {
+      margin-left: 2px;
+    }
+
+    .car-thumb:hover .car-play-circle,
+    .car-thumb:focus-visible .car-play-circle {
+      background: rgba(212, 176, 106, .12);
+      transform: scale(1.06);
+    }
+
+    .car-info {
+      padding: 20px 22px 26px;
+      border-top: 1px solid var(--border);
+    }
+
+    .car-label {
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .car-title {
+      margin-top: 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--foreground);
+    }
+
+    .car-desc {
+      margin-top: 10px;
+      font-size: .85rem;
+      color: var(--muted-foreground);
+    }
+
+    .car-thumb {
+      position: relative;
+      display: block;
+    }
+
+    .car-thumb:hover .car-play,
+    .car-thumb:focus-visible .car-play {
+      background: rgba(0, 0, 0, .32);
+    }
+
+    .car-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .car-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: none;
+      color: var(--primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .car-btn:hover {
+      border-color: var(--primary);
+      transform: scale(1.06);
+    }
+
+    .car-btn:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .car-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .car-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      background: color-mix(in srgb, var(--foreground) 30%, transparent);
+    }
+
+    .car-dot.active {
+      background: var(--primary);
+      width: 22px;
+      border-radius: 999px;
+      transition: width .25s, background .25s;
+    }
+
+    @media (min-width: 700px) {
+      .car-item {
+        flex-basis: calc((100% - 20px) / 2);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .car-item {
+        flex-basis: calc((100% - 40px) / 3);
+      }
+    }
 
     .etapas {
       display: grid;
@@ -558,6 +748,25 @@
 
     .fade-up.delay {
       animation-delay: .15s;
+    }
+
+    .corner.tl {
+      top: 0;
+      left: 0;
+      border-width: 1.5px 0 0 1.5px;
+    }
+
+    .corner {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border: 1.5px solid var(--primary);
+    }
+
+    .corner.br {
+      bottom: 0;
+      right: 0;
+      border-width: 0 1.5px 1.5px 0;
     }
 
     @keyframes fade-up {
@@ -696,9 +905,13 @@
         </dl>
       </div>
       <div class="fade-up delay">
-        <div class="hero-img">
-          <img src="assets/hero-bancario.png" width="1280" height="960"
-            alt="Mesa de escritório de advocacia com contratos bancários e balança da justiça" />
+        <div class="hero-frame">
+          <span class="corner tl"></span>
+          <span class="corner br"></span>
+          <div class="hero-img">
+            <img src="assets/hero-bancario.png" width="1280" height="960"
+              alt="Mesa de escritório de advocacia com contratos bancários e balança da justiça" />
+          </div>
         </div>
       </div>
     </div>
@@ -735,7 +948,8 @@
       <div class="container section">
         <div class="section-head">
           <h2>Conheça os seus <span class="gold">direitos</span></h2>
-          <p class="lead2">Vídeos curtos do nosso Instagram explicando, de forma simples, o que a lei garante a você.</p>
+          <p class="lead2">Vídeos curtos do nosso Instagram explicando, de forma simples, o que a lei garante a você.
+          </p>
         </div>
         <div class="car" id="carousel">
           <div class="car-track" id="car-track"></div>
@@ -796,284 +1010,293 @@
   <a class="whatsapp" href="https://wa.me/553291233714" aria-label="Falar no WhatsApp">WhatsApp</a>
 
   <script>
-      const ICONS = {
-        percent: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>',
-        file: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 11v4M12 18h.01"/></svg>',
-        car: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 17h14M3 13l2-6h14l2 6v4H3z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>',
-        card: '<svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>',
-        shield: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>',
-        bank: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 21h18M3 10h18M12 3 2 8h20zM6 10v11M10 10v11M14 10v11M18 10v11"/></svg>',
-      };
+    const ICONS = {
+      percent: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>',
+      file: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 11v4M12 18h.01"/></svg>',
+      car: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 17h14M3 13l2-6h14l2 6v4H3z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>',
+      card: '<svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>',
+      shield: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>',
+      bank: '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 21h18M3 10h18M12 3 2 8h20zM6 10v11M10 10v11M14 10v11M18 10v11"/></svg>',
+    };
 
-      const CHECK =
-        '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
-      const PLUS = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 5v14M5 12h14"/></svg>';
+    const CHECK =
+      '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
+    const PLUS = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 5v14M5 12h14"/></svg>';
 
-      // Adicione ou remova itens deste array livremente: o grid em #servicos
-      // (classe .cards) se reorganiza sozinho via CSS (auto-fit), sem precisar
-      // tocar em nenhum estilo.
-      const servicos = [
-        { icon: 'percent', titulo: 'A dívida não diminui', texto: 'Mesmo pagando as parcelas em dia, o saldo permanece praticamente o mesmo.' },
-        { icon: 'file', titulo: 'Você renegociou e ficou devendo mais', texto: 'Em muitos casos a renegociação incorpora encargos que merecem ser analisados.' },
-        { icon: 'card', titulo: 'Parcelas maiores do que o esperado', texto: 'O valor pago pode não refletir exatamente o que foi contratado.' },
-        { icon: 'bank', titulo: 'O banco não explica como chegou aos valores', texto: 'Nem sempre o cálculo apresentado é transparente ou fácil de compreender.' },
-      ];
+    // Adicione ou remova itens deste array livremente: o grid em #servicos
+    // (classe .cards) se reorganiza sozinho via CSS (auto-fit), sem precisar
+    // tocar em nenhum estilo.
+    const servicos = [
+      { icon: 'percent', titulo: 'A dívida não diminui', texto: 'Mesmo pagando as parcelas em dia, o saldo permanece praticamente o mesmo.' },
+      { icon: 'file', titulo: 'Você renegociou e ficou devendo mais', texto: 'Em muitos casos a renegociação incorpora encargos que merecem ser analisados.' },
+      { icon: 'card', titulo: 'Parcelas maiores do que o esperado', texto: 'O valor pago pode não refletir exatamente o que foi contratado.' },
+      { icon: 'bank', titulo: 'O banco não explica como chegou aos valores', texto: 'Nem sempre o cálculo apresentado é transparente ou fácil de compreender.' },
+    ];
 
-      const sinais = [
-        'Forma de cálculo da dívida',
-        'Evolução do saldo devedor',
-        'Juros e demais encargos',
-        'Tarifas e cobranças',
-        'Custo efetivo da operação (CET)',
-        'Cláusulas contratuais',
-        'Cumprimento das normas do Banco Central',
-        'Outras irregularidades que possam impactar o valor devido.'
-      ];
+    const sinais = [
+      'Forma de cálculo da dívida',
+      'Evolução do saldo devedor',
+      'Juros e demais encargos',
+      'Tarifas e cobranças',
+      'Custo efetivo da operação (CET)',
+      'Cláusulas contratuais',
+      'Cumprimento das normas do Banco Central',
+      'Outras irregularidades que possam impactar o valor devido.'
+    ];
 
-      const etapas = [
-        { n: '01', titulo: 'Análise do contrato', texto: 'Você envia o contrato e o extrato das parcelas. Fazemos a leitura técnica sem custo inicial.' },
-        { n: '02', titulo: 'Perícia de cálculo', texto: 'Recalculamos a dívida com base nas taxas médias do Banco Central e apuramos o valor pago a mais.' },
-        { n: '03', titulo: 'Negociação ou ação', texto: 'Tentativa de acordo administrativo com a instituição e, se necessário, ação revisional judicial.' },
-        { n: '04', titulo: 'Resultado', texto: 'Redução da parcela, devolução de valores ou manutenção do bem, conforme o caso concreto.' },
-      ];
+    const etapas = [
+      { n: '01', titulo: 'Análise do contrato', texto: 'Você envia o contrato e o extrato das parcelas. Fazemos a leitura técnica sem custo inicial.' },
+      { n: '02', titulo: 'Perícia de cálculo', texto: 'Recalculamos a dívida com base nas taxas médias do Banco Central e apuramos o valor pago a mais.' },
+      { n: '03', titulo: 'Negociação ou ação', texto: 'Tentativa de acordo administrativo com a instituição e, se necessário, ação revisional judicial.' },
+      { n: '04', titulo: 'Resultado', texto: 'Redução da parcela, devolução de valores ou manutenção do bem, conforme o caso concreto.' },
+    ];
 
-      const faq = [
-        { q: 'Posso revisar um contrato que já quitei?', a: 'Sim. O prazo para pedir a devolução de valores pagos indevidamente é de até 10 anos a partir de cada pagamento, mesmo com o contrato encerrado.' },
-        { q: 'Entrar com ação revisional deixa meu nome negativado?', a: 'Não. A ação em si não gera negativação. Em muitos casos é possível pedir liminar para suspender a inscrição enquanto a dívida é discutida.' },
-        { q: 'Toda taxa alta é considerada abusiva?', a: 'Não necessariamente. A abusividade é avaliada comparando a taxa do contrato com a taxa média de mercado divulgada pelo Banco Central para aquela modalidade e período.' },
-        { q: 'Consigo ficar com meu carro se já houve busca e apreensão?', a: 'Em regra sim, desde que a defesa seja apresentada no prazo. É possível purgar a mora e discutir os encargos do financiamento.' },
-      ];
+    const faq = [
+      { q: 'Posso revisar um contrato que já quitei?', a: 'Sim. O prazo para pedir a devolução de valores pagos indevidamente é de até 10 anos a partir de cada pagamento, mesmo com o contrato encerrado.' },
+      { q: 'Entrar com ação revisional deixa meu nome negativado?', a: 'Não. A ação em si não gera negativação. Em muitos casos é possível pedir liminar para suspender a inscrição enquanto a dívida é discutida.' },
+      { q: 'Toda taxa alta é considerada abusiva?', a: 'Não necessariamente. A abusividade é avaliada comparando a taxa do contrato com a taxa média de mercado divulgada pelo Banco Central para aquela modalidade e período.' },
+      { q: 'Consigo ficar com meu carro se já houve busca e apreensão?', a: 'Em regra sim, desde que a defesa seja apresentada no prazo. É possível purgar a mora e discutir os encargos do financiamento.' },
+    ];
 
-      document.getElementById('sinais-list').innerHTML = sinais
-        .map((s) => `<li>${CHECK}<span>${s}</span></li>`)
-        .join('');
+    document.getElementById('sinais-list').innerHTML = sinais
+      .map((s) => `<li>${CHECK}<span>${s}</span></li>`)
+      .join('');
 
-      document.getElementById('servicos').innerHTML = servicos
-        .map(
-          (s) => `<article class="card">
+    document.getElementById('servicos').innerHTML = servicos
+      .map(
+        (s) => `<article class="card">
             <span class="ico">${ICONS[s.icon]}</span>
             <h3>${s.titulo}</h3>
             <p>${s.texto}</p>
           </article>`,
-        )
-        .join('');
+      )
+      .join('');
 
-      document.getElementById('etapas').innerHTML = etapas
-        .map(
-          (e) => `<div class="etapa">
+    document.getElementById('etapas').innerHTML = etapas
+      .map(
+        (e) => `<div class="etapa">
             <span class="num">${e.n}</span>
             <h3>${e.titulo}</h3>
             <p>${e.texto}</p>
           </div>`,
-        )
-        .join('');
+      )
+      .join('');
 
-      const faqEl = document.getElementById('faq-list');
-      faqEl.innerHTML = faq
-        .map(
-          (f, i) => `<div class="faq-item${i === 0 ? ' open' : ''}">
+    const faqEl = document.getElementById('faq-list');
+    faqEl.innerHTML = faq
+      .map(
+        (f, i) => `<div class="faq-item${i === 0 ? ' open' : ''}">
             <button class="faq-q" type="button" aria-expanded="${i === 0}"><span>${f.q}</span>${PLUS}</button>
             <p class="faq-a">${f.a}</p>
           </div>`,
+      )
+      .join('');
+
+    faqEl.addEventListener('click', (event) => {
+      const button = event.target.closest('.faq-q');
+      if (!button) return;
+      const item = button.parentElement;
+      const willOpen = !item.classList.contains('open');
+      faqEl.querySelectorAll('.faq-item').forEach((el) => {
+        el.classList.remove('open');
+        el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        item.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    const toggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+      const open = mobileMenu.hidden;
+      mobileMenu.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A') {
+        mobileMenu.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // ===================== Carrossel de vídeos =====================
+    // Cada item mostra uma imagem de capa (print/thumbnail do reel,
+    // salvo em assets/videos/) com um botão de play por cima. Ao clicar,
+    // abre o reel original no Instagram em outra aba — assim não é
+    // preciso baixar/hospedar o vídeo, e como é só uma imagem nossa,
+    // não aparece nenhuma parte branca do player do Instagram.
+    // Para pegar a imagem: abra o post no Instagram, tire um print da
+    // área do vídeo (ou use a miniatura que já aparece no link do post)
+    // e salve em assets/videos/. Adicionar ou remover vídeos aqui é
+    // automático: paginação, pontos (dots) e centralização se
+    // recalculam sozinhos.
+    const PLAY_ICON = `<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none">
+  <path d="M8 5v14l11-7z" />
+</svg>`;
+
+    const videos = [
+      {
+        poster: 'assets/capas/capa1.png', // opcional; deixe '' se ainda não tiver
+        categoria: 'Direito Bancário',
+        titulo: 'O que é revisão de contrato bancário?',
+        descricao: 'Entenda quando vale a pena pedir a revisão do seu financiamento ou empréstimo.',
+        instagramId: 'DblxQ7KTSul',
+      },
+      {
+        poster: 'assets/capas/capa2.png',
+        categoria: 'Superendividamento',
+        titulo: 'Como funciona a Lei do Superendividamento',
+        descricao: 'Saiba como renegociar dívidas preservando o mínimo necessário para viver.',
+        instagramId: 'DbtZo8eTjDm',
+      },
+    ];
+
+    const carousel = document.getElementById('carousel');
+    const track = document.getElementById('car-track');
+    const dotsEl = document.getElementById('car-dots');
+    const prevBtn = document.getElementById('car-prev');
+    const nextBtn = document.getElementById('car-next');
+
+    if (track && videos.length) {
+      track.innerHTML = videos
+        .map(
+          (v, i) => `<div class="car-item" data-index="${i}">
+        <div class="car-card">
+          <a class="car-thumb" href="https://www.instagram.com/reel/${v.instagramId}/" target="_blank" rel="noopener" aria-label="Assistir no Instagram: ${v.titulo}">
+            <div class="car-video-area">
+              ${v.poster ? `<img src="${v.poster}" alt="" loading="lazy" />` : ''}
+              <span class="car-play-circle" aria-hidden="true">${PLAY_ICON}</span>
+            </div>
+          </a>
+          <div class="car-info">
+            <p class="car-label">${v.categoria}</p>
+            <h3 class="car-title">${v.titulo}</h3>
+            <p class="car-desc">${v.descricao}</p>
+          </div>
+        </div>
+      </div>`,
         )
         .join('');
 
-      faqEl.addEventListener('click', (event) => {
-        const button = event.target.closest('.faq-q');
-        if (!button) return;
-        const item = button.parentElement;
-        const willOpen = !item.classList.contains('open');
-        faqEl.querySelectorAll('.faq-item').forEach((el) => {
-          el.classList.remove('open');
-          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        });
-        if (willOpen) {
-          item.classList.add('open');
-          button.setAttribute('aria-expanded', 'true');
-        }
-      });
+      const items = () => Array.from(track.children);
 
-      const toggle = document.getElementById('menuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      toggle.addEventListener('click', () => {
-        const open = mobileMenu.hidden;
-        mobileMenu.hidden = !open;
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-      mobileMenu.addEventListener('click', (event) => {
-        if (event.target.tagName === 'A') {
-          mobileMenu.hidden = true;
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
+      // --- paginação baseada em quantos itens cabem por vez (1, 2 ou 3
+      //     conforme a largura da tela), não em cada vídeo individual ---
+      const itemsPerView = () => {
+        const first = items()[0];
+        if (!first) return 1;
+        const itemWidth = first.getBoundingClientRect().width + 20; // + gap
+        return Math.max(1, Math.round(track.clientWidth / itemWidth));
+      };
 
-      // ===================== Carrossel de vídeos =====================
-      // Cada item mostra uma imagem de capa (print/thumbnail do reel,
-      // salvo em assets/videos/) com um botão de play por cima. Ao clicar,
-      // abre o reel original no Instagram em outra aba — assim não é
-      // preciso baixar/hospedar o vídeo, e como é só uma imagem nossa,
-      // não aparece nenhuma parte branca do player do Instagram.
-      // Para pegar a imagem: abra o post no Instagram, tire um print da
-      // área do vídeo (ou use a miniatura que já aparece no link do post)
-      // e salve em assets/videos/. Adicionar ou remover vídeos aqui é
-      // automático: paginação, pontos (dots) e centralização se
-      // recalculam sozinhos.
-      const PLAY_ICON = `<svg viewBox="0 0 24 24" width="60" height="60">
-        <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,.92)" stroke="none" />
-        <path d="M10 7.8 16.5 12 10 16.2z" fill="#10162b" stroke="none" />
-      </svg>`;
+      const pageCount = () => Math.max(1, Math.ceil(items().length / itemsPerView()));
 
-      const videos = [
-        {
-          poster: 'assets/capas/capa1.png',
-          legenda: 'Você acha que precisa pagar absolutamente tudo o que o banco cobra?',
-          instagramId: 'DblxQ7KTSul',
-        },
-        {
-          poster: 'assets/capas/capa2.png',
-          legenda: 'Problemas com bancos, financiamentos ou contratos bancários?',
-          instagramId: 'DbtZo8eTjDm',
-        },
-      ];
+      const currentPage = () => {
+        const perView = itemsPerView();
+        const first = items()[0];
+        if (!first) return 0;
+        const itemWidth = first.getBoundingClientRect().width + 20;
+        const approxIndex = Math.round(track.scrollLeft / itemWidth);
+        return Math.min(pageCount() - 1, Math.round(approxIndex / perView));
+      };
 
-      const carousel = document.getElementById('carousel');
-      const track = document.getElementById('car-track');
-      const dotsEl = document.getElementById('car-dots');
-      const prevBtn = document.getElementById('car-prev');
-      const nextBtn = document.getElementById('car-next');
-
-      if (track && videos.length) {
-        track.innerHTML = videos
-          .map(
-            (v, i) => `<div class="car-item" data-index="${i}">
-              <div class="car-card">
-                <a class="car-thumb" href="https://www.instagram.com/reel/${v.instagramId}/" target="_blank" rel="noopener" aria-label="Assistir no Instagram: ${v.legenda}">
-                  <img src="${v.poster}" alt="${v.legenda}" loading="lazy" />
-                  <span class="car-play" aria-hidden="true">${PLAY_ICON}</span>
-                </a>
-                <p class="car-cap">${v.legenda}</p>
-              </div>
-            </div>`,
-          )
+      const renderDots = () => {
+        const pages = pageCount();
+        dotsEl.innerHTML = Array.from({ length: pages })
+          .map((_, i) => `<button class="car-dot${i === 0 ? ' active' : ''}" type="button" aria-label="Ir para a página ${i + 1}"></button>`)
           .join('');
+      };
 
-        const items = () => Array.from(track.children);
+      // Centraliza os vídeos sempre que eles não preenchem a faixa toda
+      // (ex.: 1 ou 2 vídeos, ou a última página com sobra) e esconde as
+      // setas/pontos quando não há o que navegar — nesse caso não faz
+      // sentido rolar, então os vídeos ficam sempre centralizados na tela.
+      const navEl = carousel.querySelector('.car-nav');
+      const updateNavAndCentering = () => {
+        const pages = pageCount();
+        const single = pages <= 1;
+        track.classList.toggle('is-centered', single);
+        if (navEl) navEl.hidden = single;
+      };
 
-        // --- paginação baseada em quantos itens cabem por vez (1, 2 ou 3
-        //     conforme a largura da tela), não em cada vídeo individual ---
-        const itemsPerView = () => {
-          const first = items()[0];
-          if (!first) return 1;
-          const itemWidth = first.getBoundingClientRect().width + 20; // + gap
-          return Math.max(1, Math.round(track.clientWidth / itemWidth));
-        };
+      const updateDots = () => {
+        const active = currentPage();
+        Array.from(dotsEl.children).forEach((dot, i) => dot.classList.toggle('active', i === active));
+      };
 
-        const pageCount = () => Math.max(1, Math.ceil(items().length / itemsPerView()));
+      const goToPage = (page) => {
+        const pages = pageCount();
+        const perView = itemsPerView();
+        const idx = Math.max(0, Math.min(pages - 1, page));
+        const targetItem = items()[idx * perView];
+        if (targetItem) {
+          track.scrollTo({ left: targetItem.offsetLeft, behavior: 'smooth' });
+        }
+      };
 
-        const currentPage = () => {
-          const perView = itemsPerView();
-          const first = items()[0];
-          if (!first) return 0;
-          const itemWidth = first.getBoundingClientRect().width + 20;
-          const approxIndex = Math.round(track.scrollLeft / itemWidth);
-          return Math.min(pageCount() - 1, Math.round(approxIndex / perView));
-        };
+      renderDots();
+      updateNavAndCentering();
 
-        const renderDots = () => {
-          const pages = pageCount();
-          dotsEl.innerHTML = Array.from({ length: pages })
-            .map((_, i) => `<button class="car-dot${i === 0 ? ' active' : ''}" type="button" aria-label="Ir para a página ${i + 1}"></button>`)
-            .join('');
-        };
+      prevBtn.addEventListener('click', () => goToPage(currentPage() - 1));
+      nextBtn.addEventListener('click', () => goToPage(currentPage() + 1));
 
-        // Centraliza os vídeos sempre que eles não preenchem a faixa toda
-        // (ex.: 1 ou 2 vídeos, ou a última página com sobra) e esconde as
-        // setas/pontos quando não há o que navegar — nesse caso não faz
-        // sentido rolar, então os vídeos ficam sempre centralizados na tela.
-        const navEl = carousel.querySelector('.car-nav');
-        const updateNavAndCentering = () => {
-          const pages = pageCount();
-          const single = pages <= 1;
-          track.classList.toggle('is-centered', single);
-          if (navEl) navEl.hidden = single;
-        };
+      dotsEl.addEventListener('click', (event) => {
+        const dot = event.target.closest('.car-dot');
+        if (!dot) return;
+        goToPage(Array.from(dotsEl.children).indexOf(dot));
+      });
 
-        const updateDots = () => {
-          const active = currentPage();
-          Array.from(dotsEl.children).forEach((dot, i) => dot.classList.toggle('active', i === active));
-        };
+      // navegação por teclado quando o carrossel está focado
+      carousel.setAttribute('tabindex', '0');
+      carousel.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') goToPage(currentPage() + 1);
+        if (event.key === 'ArrowLeft') goToPage(currentPage() - 1);
+      });
 
-        const goToPage = (page) => {
-          const pages = pageCount();
-          const perView = itemsPerView();
-          const idx = Math.max(0, Math.min(pages - 1, page));
-          const targetItem = items()[idx * perView];
-          if (targetItem) {
-            track.scrollTo({ left: targetItem.offsetLeft, behavior: 'smooth' });
-          }
-        };
+      let scrollTimer = null;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateDots, 80);
+      });
 
-        renderDots();
-        updateNavAndCentering();
+      // recalcula dots/página ao redimensionar a janela (ex.: virar o
+      // celular, ou trocar de mobile para desktop)
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          renderDots();
+          updateDots();
+          updateNavAndCentering();
+        }, 150);
+      });
 
-        prevBtn.addEventListener('click', () => goToPage(currentPage() - 1));
-        nextBtn.addEventListener('click', () => goToPage(currentPage() + 1));
+      // autoplay suave, pausado ao passar o mouse ou tocar/arrastar
+      let autoplayTimer = null;
+      const startAutoplay = () => {
+        if (videos.length <= itemsPerView()) return; // não faz sentido girar se cabe tudo
+        stopAutoplay();
+        autoplayTimer = setInterval(() => {
+          const next = currentPage() + 1 >= pageCount() ? 0 : currentPage() + 1;
+          goToPage(next);
+        }, 6000);
+      };
+      const stopAutoplay = () => {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      };
 
-        dotsEl.addEventListener('click', (event) => {
-          const dot = event.target.closest('.car-dot');
-          if (!dot) return;
-          goToPage(Array.from(dotsEl.children).indexOf(dot));
-        });
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+      carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
 
-        // navegação por teclado quando o carrossel está focado
-        carousel.setAttribute('tabindex', '0');
-        carousel.addEventListener('keydown', (event) => {
-          if (event.key === 'ArrowRight') goToPage(currentPage() + 1);
-          if (event.key === 'ArrowLeft') goToPage(currentPage() - 1);
-        });
+      startAutoplay();
+    }
 
-        let scrollTimer = null;
-        track.addEventListener('scroll', () => {
-          clearTimeout(scrollTimer);
-          scrollTimer = setTimeout(updateDots, 80);
-        });
-
-        // recalcula dots/página ao redimensionar a janela (ex.: virar o
-        // celular, ou trocar de mobile para desktop)
-        let resizeTimer = null;
-        window.addEventListener('resize', () => {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(() => {
-            renderDots();
-            updateDots();
-            updateNavAndCentering();
-          }, 150);
-        });
-
-        // autoplay suave, pausado ao passar o mouse ou tocar/arrastar
-        let autoplayTimer = null;
-        const startAutoplay = () => {
-          if (videos.length <= itemsPerView()) return; // não faz sentido girar se cabe tudo
-          stopAutoplay();
-          autoplayTimer = setInterval(() => {
-            const next = currentPage() + 1 >= pageCount() ? 0 : currentPage() + 1;
-            goToPage(next);
-          }, 6000);
-        };
-        const stopAutoplay = () => {
-          if (autoplayTimer) clearInterval(autoplayTimer);
-          autoplayTimer = null;
-        };
-
-        carousel.addEventListener('mouseenter', stopAutoplay);
-        carousel.addEventListener('mouseleave', startAutoplay);
-        carousel.addEventListener('touchstart', stopAutoplay, { passive: true });
-
-        startAutoplay();
-      }
-
-      document.getElementById('ano').textContent = String(new Date().getFullYear());
-    </script>
+    document.getElementById('ano').textContent = String(new Date().getFullYear());
+  </script>
 </body>
 
 </html>
