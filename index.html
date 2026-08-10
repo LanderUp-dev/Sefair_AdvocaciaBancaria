@@ -18,12 +18,13 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
   <style>
     :root {
-      --background: #10162b;
+      --background: #0d1122;
       --foreground: #f7f3e8;
-      --card: #1a2039;
-      --primary: #d4b06a;
+      --card: #141a30;
+      --primary: #c9a24b;
       --primary-glow: #eacf95;
       --primary-dim: #a8863f;
+      --primary-soft: rgba(201, 162, 75, 0.14);
       --primary-foreground: #10162b;
       --secondary: #262c4c;
       --muted-foreground: #9aa0b5;
@@ -210,6 +211,7 @@
 
     .btn-primary:hover {
       transform: scale(1.05);
+      transition: transform .2s, border-color .2s, color .2s;
     }
 
     .btn-outline {
@@ -324,7 +326,7 @@
     }
 
     .linha {
-      border-block: 1px solid var(--border);
+      border-block: 1px solid var(--primary-dim);
     }
 
     .band>.container,
@@ -701,7 +703,7 @@
     }
 
     .footer-bar {
-      background: var(--footer-bar);
+      background: rgba(26, 32, 57, .4);;
     }
 
     .footer-grid {
@@ -717,7 +719,8 @@
     }
 
     .footer-bottom {
-      background: var(--footer-bottom);
+      background: var(--background);
+      border-top: 1px solid var(--border);
     }
 
     .footer-bottom-inner {
@@ -897,7 +900,7 @@
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://wa.me/553291233714">Análise gratuita do contrato</a>
-          <a class="btn btn-outline" href="#sinais">Ver áreas de atuação →</a>
+          <a class="btn btn-outline" href="#sinais">Veja alguns sinais →</a>
         </div>
         <dl class="stats">
           <div>
@@ -944,7 +947,7 @@
     </div>
   </section>
 
-  <div class="bg-blue-light">
+  <div class="bg-blue-light linha">
     <section id="processo" class="band">
       <div class="container">
         <h2>Como <span class="gold">funciona</span></h2>
@@ -1002,6 +1005,9 @@
   </section>
 
   <footer>
+    <div class="linha">
+      
+    </div>
     <div class="footer-bar">
       <div class="container footer-grid">
         <div>Av. Olegário Maciel, 770 - Santa Helena<br />Juiz de Fora / MG</div>
