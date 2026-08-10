@@ -23,6 +23,7 @@
       --card: #1a2039;
       --primary: #d4b06a;
       --primary-glow: #eacf95;
+      --primary-dim: #a8863f;
       --primary-foreground: #10162b;
       --secondary: #262c4c;
       --muted-foreground: #9aa0b5;
@@ -41,9 +42,10 @@
     }
 
     #topo,
-    #atuacao,
     #sinais,
+    #analise,
     #processo,
+    #videos,
     #faq,
     #contato {
       scroll-margin-top: 96px;
@@ -156,7 +158,11 @@
     .nav-links a:hover {
       color: var(--primary);
     }
-
+    .nav-links div a:hover {
+      background-color: var(--primary-dim);
+      color: rgba(247, 243, 232, .9);
+    }
+    
     .menu-toggle {
       background: none;
       border: 0;
@@ -848,12 +854,15 @@
       <a href="#topo" class="logo"><img
           src="https://snadv.com.br/novo/wp-content/uploads/2024/10/logo-snadv-top-site.png" alt="Logo ANA"></a>
       <div class="nav-links">
-        <a href="#atuacao">Atuação</a>
-        <a href="#sinais">Sinais de Abuso</a>
+        <a href="#sinais">Sinais</a>
+        <a href="#analise">O Que Analisamos</a>
         <a href="#processo">Como Funciona</a>
+        <a href="#videos">Videos</a>
         <a href="#faq">Dúvidas</a>
         <a href="#contato">Contato</a>
-        <a class="btn btn-primary btn-sm" href="https://wa.me/553291233714">Falar com advogado</a>
+        <div>
+          <a class="btn btn-primary btn-sm" href="https://wa.me/553291233714">Falar com advogado</a>
+        </div>
       </div>
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" width="26" height="26">
@@ -862,9 +871,10 @@
       </button>
     </nav>
     <div class="mobile-menu" id="mobileMenu" hidden>
-      <a href="#atuacao">Atuação</a>
-      <a href="#sinais">Sinais de Abuso</a>
+      <a href="#sinais">Sinais</a>
+      <a href="#analise">O Que Analisamos</a>
       <a href="#processo">Como Funciona</a>
+      <a href="#videos">Videos</a>
       <a href="#faq">Dúvidas</a>
       <a href="#contato">Contato</a>
       <a class="btn btn-primary" href="https://wa.me/553291233714">Falar com advogado</a>
@@ -887,7 +897,7 @@
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://wa.me/553291233714">Análise gratuita do contrato</a>
-          <a class="btn btn-outline" href="#atuacao">Ver áreas de atuação →</a>
+          <a class="btn btn-outline" href="#sinais">Ver áreas de atuação →</a>
         </div>
         <dl class="stats">
           <div>
@@ -918,7 +928,7 @@
   </section>
 
   <div class="bg-blue-light linha">
-    <section id="atuacao" class="container section">
+    <section id="sinais" class="container section">
       <div class="section-head ">
         <h2>O seu contrato apresenta algumas destas <span class="gold">situações</span>?</h2>
       </div>
@@ -926,7 +936,7 @@
     </section>
   </div>
 
-  <section id="sinais" class="band">
+  <section id="analise" class="band">
     <div class="container">
       <h2>Cada contrato bancário possui características próprias. <br>Nossa análise verifica, entre outros <span
           class="gold"> aspectos</span>:</h2>
@@ -944,9 +954,9 @@
   </div>
 
   <div class="linha">
-    <section id="videos">
+    <section>
       <div class="container section">
-        <div class="section-head">
+        <div class="section-head" id="videos">
           <h2>Conheça os seus <span class="gold">direitos</span></h2>
           <p class="lead2">Vídeos curtos do nosso Instagram explicando, de forma simples, o que a lei garante a você.
           </p>
